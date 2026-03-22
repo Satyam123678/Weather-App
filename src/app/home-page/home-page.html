@@ -1,0 +1,41 @@
+
+<div class="main-div">
+    <h1>Weather Forecast</h1>
+    <div class="card">
+        <div class="header-section">
+            <input type="text" class="input-style" placeholder="Enter City Name...." [(ngModel)]="cityName" name="cityName">
+            <div class="btn-adj">
+                <button class="search-btn" (click)="search()"><img src="/assets/search.png" alt="search"></button>
+
+            </div>
+        </div>
+        <div *ngIf="isLoading" class="loader-container">
+            <div class="loader"></div>
+            <p>Fetching weather...</p>
+        </div>
+
+        <div *ngIf="isDataLoaded && !isLoading">
+            <div class="main-image">
+                <img src="/assets/mist.png">
+
+                <span class="temp">{{temp}}°C</span>
+                <span class="city">{{city}}</span>
+            </div>
+
+            <div class="lower-section-image">
+                <div class="weather-item">
+                    <img src="/assets/humidity.png">
+                    <span>{{humidity}}%</span>
+                    <p>Humidity</p>
+                </div>
+
+                <div class="weather-item">
+                    <img src="/assets/wind.png">
+                    <span>{{wind}}km/h</span>
+                    <p>Wind</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
